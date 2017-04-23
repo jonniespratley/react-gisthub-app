@@ -1,7 +1,11 @@
 import Logger from './logger'
+import axios from 'axios'
 const NS = 'gisthub';
 
+
+
 let Utils = {};
+Utils.request = axios.request;
 Utils.getLogger = (name) => {
   return new Logger(NS).getLogger(name);
 };

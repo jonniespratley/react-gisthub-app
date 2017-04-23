@@ -1,12 +1,17 @@
-import {Component} from 'react'
-import Logger from '../logger'
-const log = new Logger('gisthub').getLogger('gist-file')
+import React, {
+  Component
+} from 'react'
+import hljs from 'highlightjs'
 
-/*global hljs*/
 export default class GistFile extends Component {
+	constructor(props){
+		super(props);
+	}
+
 	_loadRawContents(url){
 		return fetch(url).then(resp => resp.text().then(text => text))
 	}
+
 	componentWillMount() {
 		let file = this.props.file;
 		let {size} = file;
@@ -19,20 +24,19 @@ export default class GistFile extends Component {
 	}
 
 	componentDidUpdate(){
-		hljs.initHighlighting();
+		hljs.highlightBlock(this.codeBlock);
 	}
 
 	render(){
 		const file = this.props.file;
-		log('render', file);
 		return (
-			<div className="gist__file mt-3">
+			<div className="gist__file mt-3" id={file.filename}>
 			<div className="gist__filename">
-				<a href="#{file.filename}"><i className="fa fa-file-code-o"></i> {file.filename}</a>
+				<a href={`#${file.filename}`}><i className="fa fa-file-code-o"></i> {file.filename}</a>
 				<a href={file.raw_url} className="btn  btn-outline-secondary btn-sm" target="_blank">Raw</a>
 			</div>
 			<div className="gist__code">
-				<pre><code className={file.language}>{file.content}</code></pre>
+				<pre><code className={file.language}  ref={(code) => { this.codeBlock = code; }}>{file.content}</code></pre>
 			</div>
 		</div>
 		)

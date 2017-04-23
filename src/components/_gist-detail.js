@@ -1,4 +1,4 @@
-import {
+import React, {
   Component
 } from 'react'
 import GistFile from './_gist-file'
@@ -13,7 +13,7 @@ export default class GistDetail extends Component {
       compact
     } = this.props;
 
-    let classNames = 'gist gist--detail m-4';
+    let classNames = 'gist gist--detail';
     if (compact) {
       classNames += ' gist--compact';
     }
@@ -23,13 +23,13 @@ export default class GistDetail extends Component {
     }
     return (
       <div className={classNames}>
-			<div className="d-flex justify-content-between">
-				<GistUser gist={gist}/>
-				<GistStats gist={gist}/>
-			</div>
-			<div className="gist__files">
-				{ files.map((file) =>(<GistFile key={file.filename} file={file}/>)) }
-			</div>
+  			<div className="d-flex justify-content-between">
+  				<GistUser gist={gist}/>
+  				<GistStats gist={gist}/>
+  			</div>
+  			<div className="gist__files">
+  				{ files.map((file) =>(<GistFile key={file.filename} file={file}/>)) }
+  			</div>
 		</div>
     )
   }

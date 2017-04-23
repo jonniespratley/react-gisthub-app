@@ -1,3 +1,5 @@
+import React from 'react'
+
 //Gist Stats
 const GistStats = ({
 	gist

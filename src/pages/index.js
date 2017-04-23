@@ -19,27 +19,28 @@ import GistDetailPage from './detail'
 //Child Page
 const Child = (props) => {
   let {
-    id
+    id,
+    username
   } = props.match.params;
 
   log('Child', props);
   let {
     match
   } = props;
+
   if (id === 'discover') {
-    id = null
+    id = null;
+  }
+  if(username === 'gists'){
+    username = null;
   }
 
   return (
-    <div className="gists">
+    <div className="gists container-fluid">
 			<div className="row">
-				<div className="col-6">
-					<h3>Username: {match.params.username}</h3>
-					<GistsListPage match={match} username={match.params.username}/>
-				</div>
-				<div className="col-6">
-					<h3>ID: {match.params.id}</h3>
-					{id && <GistDetailPage match={match} id={id}/>}
+				<div className="col-12">
+          {id && <GistDetailPage match={match} id={id}/>}
+					{!id && <GistsListPage match={match} username={match.params.username}/>}
 				</div>
 			</div>
 		</div>

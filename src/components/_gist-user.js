@@ -1,13 +1,17 @@
-import {Component} from 'react'
+import React, {
+  Component
+} from 'react'
 import {Link} from 'react-router-dom'
 
 export default class GistUser extends Component {
+
 	constructor(props){
 		super(props);
-		this.props = {
+		this.defaultProps = {
 			gist: {}
 		};
 	}
+
 	render(){
 		const gist = this.props.gist;
 		const file = gist.files && gist.files[Object.keys(gist.files)[0]];
