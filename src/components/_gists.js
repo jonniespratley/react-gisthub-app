@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'react'
+import React from 'react'
 
 
 import GistDetail from './_gist-detail'
@@ -8,7 +6,7 @@ import GistDetail from './_gist-detail'
 import Logger from '../logger'
 const log = new Logger('gisthub').getLogger('gists')
 
-export default class Gists extends Component {
+export default class Gists extends React.Component {
 	constructor(props) {
     super(props)
 		this.defaultProps = {

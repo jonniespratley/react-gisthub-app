@@ -1,13 +1,12 @@
-import {
-  Component
-} from 'react'
+import React from 'react'
 import {
   BrowserRouter,
   Route,
   Link
 } from 'react-router-dom'
 
-import GistForm from '../components/_gist-form'
+//import GistForm from '../components/_gist-form'
+//import GistsFormPage from './create'
 import Services from '../services'
 import Utils from '../utils'
 
@@ -15,7 +14,7 @@ const log = Utils.getLogger('index-page')
 
 import GistsListPage from './list'
 import GistDetailPage from './detail'
-import GistsFormPage from './create'
+
 
 //Child Page
 const Child = (props) => {
@@ -47,7 +46,7 @@ const Child = (props) => {
   )
 }
 
-export default class Index extends Component {
+export default class Index extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

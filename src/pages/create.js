@@ -1,10 +1,7 @@
-import {
-  Component
-} from 'react'
-
+import React from 'react'
 import GistForm from '../components/_gist-form'
 
-export default class CreateGist extends Component {
+export default class CreateGist extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

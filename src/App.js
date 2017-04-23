@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
-
-
-
 import {
   Switch,
-  //Router,
   BrowserRouter,
   Route,
   Link,
-  //IndexRoute,
-  //hashHistory
+  IndexRoute,
+  hashHistory
 } from 'react-router-dom'
 
 import logo from './logo.svg';
-
-
 import './App.css';
 import Services from './services'
 import utils from './utils'
 const log = utils.getLogger('app');
+import Header from './components/_header'
+import Footer from './components/_footer'
+import Index from './pages/index'
+import Dashboard from './pages/dashboard'
+import About from './pages/about'
+import GistsListPage from './pages/list'
+import GistsFormPage from './pages/create'
 
-class App extends Component {
+
+
+export default class App extends Component {
   constructor(props){
     super(props);
     this.services = Services;
@@ -39,7 +42,6 @@ class App extends Component {
            <img src={logo} className="App-logo" alt="logo" />
            <h2>Welcome to React Gist</h2>
          </div>
-
          <p className="App-intro">
            To get started, edit <code>src/App.js</code> and save to reload.
          </p>
@@ -51,12 +53,7 @@ class App extends Component {
        </ul>
        </div>
       <Switch>
-
-         <Route path="/" component={Index}>
-
-        </Route>
-        <Route path="/app" component={App}/>
-
+         <Route path="/" component={Index}/>
          <Route exact path="/about" component={About}/>
          <Route exact path="/dashboard" component={Dashboard}/>
          <Route exact path="/home" render={() => <div>Home</div>}/>
@@ -68,5 +65,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
