@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-const loginUrl = 'https://github.com/login/oauth/authorize?client_id=6b070b302956750a3c37&redirect_uri&scope&state=login&allow_signup=true'
-
 export default class Header extends React.Component {
+
   render() {
     return (
       <header>
@@ -20,11 +19,10 @@ export default class Header extends React.Component {
 							<li className="nav-item">
 								<NavLink to='/gists' activeClassName="selected" className="nav-link">All Gists</NavLink>
 							</li>
-
 						</ul>
 						<ul className='pull-right navbar-nav'>
 							<li className='nav-item'>
-								<a href={loginUrl} className='nav-link'>Login</a>
+								<a href={this.props.loginUrl} className='nav-link'>Login</a>
 							</li>
 						</ul>
 					</div>

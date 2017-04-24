@@ -15,6 +15,7 @@ import './App.css';
 import './styles/main.css';
 import './styles/github.min.css';
 import './styles/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.css';
 
 
 
@@ -46,7 +47,7 @@ export default class App extends React.Component {
     return (
       <BrowserRouter history={hashHistory}>
          <div>
-           <Header/>
+           <Header loginUrl={this.services.getGithubLoginUrl()}/>
             <Switch>
                <Route path="/" component={Index}/>
                <Route exact path="/about" component={About}/>

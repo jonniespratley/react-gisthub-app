@@ -11,7 +11,14 @@ Utils.getLogger = (name) => {
 };
 
 const log = Utils.getLogger('utils');
-
+Utils.serialize = (obj) =>{
+    var str = [];
+    for (var p in obj)
+        if (obj.hasOwnProperty(p)) {
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        }
+    return str.join("&");
+}
 Utils.getQueryVariable = (variable) => {
   var query = window.location.search.substring(1);
   var vars = query.split('&');

@@ -6,6 +6,9 @@ import hljs from 'highlightjs'
 export default class GistFile extends Component {
 	constructor(props){
 		super(props);
+    this.defaultProps = {
+      file: {}
+    };
 	}
 
 	_loadRawContents(url){
@@ -18,6 +21,7 @@ export default class GistFile extends Component {
 		if(size < 500){
 				this._loadRawContents(file.raw_url).then((text) => {
 					file.content = text
+
 					this.setState({file: file})
 			})
 		}
@@ -25,6 +29,7 @@ export default class GistFile extends Component {
 
 	componentDidUpdate(){
 		hljs.highlightBlock(this.codeBlock);
+
 	}
 
 	render(){

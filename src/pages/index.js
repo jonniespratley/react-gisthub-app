@@ -14,7 +14,7 @@ const log = Utils.getLogger('index-page')
 
 import GistsListPage from './list'
 import GistDetailPage from './detail'
-
+import {Jumbotron, Button} from 'react-bootstrap'
 
 //Child Page
 const Child = (props) => {
@@ -70,13 +70,16 @@ export default class Index extends React.Component {
     return (
       <BrowserRouter>
 				<div>
-					<div className="hero">
-						<h3>Sign In to See Your Gists</h3>
+          <Jumbotron>
+            <h2>Sign In to See Your Gists</h2>
 						<p>Here we list public gists until the user is logged in.</p>
-						<ul>
-							<li><Link to="/jonniespratley">jonniespratley</Link></li>
-						</ul>
-					</div>
+
+            <p>
+              <Button bsStyle="default"><Link to="/jonniespratley">jonniespratley</Link></Button>
+              <Button bsStyle="primary">Learn more</Button>
+
+            </p>
+          </Jumbotron>
 					<div id='index-content'>
 						<Route path="/:username/:id?" component={Child}/>
 					</div>

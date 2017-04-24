@@ -22,17 +22,17 @@ export default class GistUser extends Component {
 		}
 		return (
 				<div className="gist__user d-flex ">
-				<img src={gist.owner.avatar_url} alt="Gist Owner" className="rounded mr-2" />
-				<div>
-					<div>
-						<Link to={`/${gist.owner.login}`}>{gist.owner.login}</Link> /
-						<Link to={`/${gist.owner.login}/${gist.id}`}>{file.filename}</Link>
-					</div>
-					<div className="text-muted">
-						<small>Created {gist.created_at}</small>
-					</div>
-					<div className="gist__description text-muted pt-1">{gist.description}</div>
-				</div>
+  				<img src={gist.owner.avatar_url} alt="Gist Owner" className="gist__avatar rounded mr-2" />
+  				<div className="gist__meta">
+  					<div className='gist__owner'>
+  						<Link to={`/${gist.owner.login}`}>{gist.owner.login}</Link> /
+  						<Link to={`/${gist.owner.login}/${gist.id}`}>{file.filename}</Link>
+  					</div>
+  					<div className="gist__created text-muted">
+  						<small>Created {gist.created_at}</small>
+  					</div>
+  					<div className="gist__description text-muted pt-1">{gist.description}</div>
+  				</div>
 			</div>
 			)
 	}
