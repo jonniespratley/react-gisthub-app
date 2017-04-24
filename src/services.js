@@ -16,12 +16,12 @@ async function getJson(url, options) {
     log('getJson', url, options);
     if (cache.get(url)) {
         log('getJson', 'returning cache');
-      //return cache.get(url);
+        //return cache.get(url);
     }
     try {
         const res = await request(url, options)
         const data = await res.json()
-      //  cache.set(url, data);
+        cache.set(url, data);
         return data
     } catch (e) {
         log('request', 'error', e);
@@ -29,15 +29,10 @@ async function getJson(url, options) {
     }
 }
 async function request(url, options) {
-    log('request', options);
-
+    log('request', url, options);
     try {
-      if (cache.get(url)) {
-          log('request', 'returning cache');
-          //return cache.get(url);
-      }
         const res = await axios.request(url, options)
-        //cache.set(url, res.data);
+        cache.set(url, res.data);
         return res
     } catch (e) {
         log('request', 'error', e);
@@ -75,16 +70,16 @@ const Services = {
         let gitRequest = axios.request('https://github.com/login/oauth/access_token?', {
             params: params,
             method: 'POST',
-             body: JSON.stringify(params),
+            body: JSON.stringify(params),
             mode: 'no-cors',
             headers: {
-              'Content-Type' : 'text/plain'
+                'Content-Type': 'text/plain'
             }
         });
         log('getAccessToken', params);
-        return gitRequest.then((resp) =>{
-          log('getAccessToken', resp);
-          return resp;
+        return gitRequest.then((resp) => {
+            log('getAccessToken', resp);
+            return resp;
         })
     },
     getUserInfo: (token) => {

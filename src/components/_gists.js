@@ -18,9 +18,9 @@ export default class Gists extends React.Component {
 		const {gists} = this.props;
 		if(gists){
 			log( 'componentWillMount', 'not fetching gists using props', gists);
-			this.setState({
+			return this.setState({
 				gists: gists
-			})
+			});
 		}
     log('componentWillMount', this);
   }

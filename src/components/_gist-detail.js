@@ -14,7 +14,7 @@ export default class GistDetail extends Component {
       compact
     } = this.props;
 
-    let classNames = 'gist gist--detail mb-sm-3';
+    let classNames = 'gist gist--detail mb-5';
     if (compact) {
       classNames += ' gist--compact';
     }
