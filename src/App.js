@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom'
 
 import './App.css';
+import '../public/css/bootstrap.min.css';
+
 import './styles/main.css';
 
 import Services from './services'

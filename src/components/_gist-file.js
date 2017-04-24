@@ -1,7 +1,9 @@
 import React, {
   Component
 } from 'react'
+
 import hljs from 'highlightjs'
+import '../../public/css/github.min.css';
 
 export default class GistFile extends Component {
 	constructor(props){
