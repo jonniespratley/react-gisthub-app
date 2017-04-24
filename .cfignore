@@ -1,0 +1,15 @@
+/node_modules/
+npm-debug.log
+temp
+.idea
+//data
+.DS_Store
+db.sqlite
+/pouchdb/
+/pouchdb-mrview-temp/
+node_modules
+.log
+.next
+bower_components
+.tmp
+temp

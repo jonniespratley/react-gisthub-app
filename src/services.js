@@ -11,7 +11,6 @@ import Utils from './utils'
 let cache = new Store('localStorage');
 const log = Utils.getLogger('services');
 
-
 async function getJson(url, options) {
     log('getJson', url, options);
     try {
@@ -45,7 +44,6 @@ const Services = {
         let url = (username ? `https://api.github.com/users/${username}/gists` : 'https://api.github.com/gists');
         return request(url).then(resp => resp.data);
     },
-
     getGist: (id) => {
         log('getGist', id);
         return request(`https://api.github.com/gists/${id}`).then(resp => resp.data);
