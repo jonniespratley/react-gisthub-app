@@ -14,14 +14,9 @@ const log = Utils.getLogger('services');
 
 async function getJson(url, options) {
     log('getJson', url, options);
-    if (cache.get(url)) {
-        log('getJson', 'returning cache');
-        //return cache.get(url);
-    }
     try {
         const res = await request(url, options)
         const data = await res.json()
-        cache.set(url, data);
         return data
     } catch (e) {
         log('request', 'error', e);
@@ -32,7 +27,6 @@ async function request(url, options) {
     log('request', url, options);
     try {
         const res = await axios.request(url, options)
-        cache.set(url, res.data);
         return res
     } catch (e) {
         log('request', 'error', e);

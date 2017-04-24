@@ -1,24 +1,26 @@
 import React from 'react'
 
 
-import GistDetail from './_gist-detail'
+import GistListItem from './_gist-list-item'
+//import GistDetail from './_gist-detail'
 
 import Logger from '../logger'
-const log = new Logger('gisthub').getLogger('gists')
+const log = new Logger('gisthub').getLogger('component:gists')
 
 export default class Gists extends React.Component {
 	constructor(props) {
     super(props)
 		this.defaultProps = {
-			gists: null
+			gists: null,
+			type: 'public'
 		};
   }
 
 	componentWillMount() {
 		const {gists} = this.props;
-		if(gists){
-			log( 'componentWillMount', 'not fetching gists using props', gists);
-			return this.setState({
+		if(gists && gists.length){
+			log( 'componentWillMount', 'not fetching gists using props');
+			this.setState({
 				gists: gists
 			});
 		}
@@ -26,12 +28,12 @@ export default class Gists extends React.Component {
   }
 
   render() {
-		const {gists} = this.state;
-		log('render', gists);
+
+		log('render', this);
     return (
       <div>
-				{gists && gists.map(gist => (
-					<GistDetail key={gist.id} gist={gist} compact/>
+				{this.state && this.state.gists && this.state.gists.map(gist => (
+					<GistListItem key={gist.id} gist={gist} compact/>
 				))}
 			</div>
     )

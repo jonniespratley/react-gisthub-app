@@ -17,7 +17,7 @@ export default class Header extends React.Component {
 						</form>
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item">
-								<NavLink to='/gists' activeClassName="selected" className="nav-link">All Gists</NavLink>
+								<NavLink to='/discover' activeClassName="selected" className="nav-link">All Gists</NavLink>
 							</li>
 						</ul>
 						<ul className='pull-right navbar-nav'>

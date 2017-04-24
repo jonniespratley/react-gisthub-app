@@ -4,6 +4,7 @@ body {
 }
 .gist__tabs {
 	border-bottom: none;
+  font-size: .9rem;
 }
 .gists__header h2 {
     font-size: 1.4rem;

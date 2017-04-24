@@ -1,6 +1,23 @@
 import React from 'react'
-
+import GistsList from './_gists'
+import Services from '../services'
+import Utils from '../utils'
+const log = Utils.getLogger('component:public-gists')
 export default class PublicGists extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			gists: null
+		};
+	}
+	componentWillMount() {
+		log('componentWillMount', this);
+		Services.getGists().then((resp) => {
+
+			this.setState({gists: resp});
+		});
+  }
+
 	render(){
 		return (
 			<div>
@@ -43,12 +60,8 @@ export default class PublicGists extends React.Component {
 					<div className="container mt-5">
 						<div className="tab-content">
 							<div className="tab-pane active" id="allgists" role="tabpanel">
-								<div className="card">
-									<div className="card-header">Test</div>
-									<div className="card-block">
-										<p>this is a <span>span</span></p>
-									</div>
-								</div>
+								{this.state.gists && <GistsList gists={this.state.gists}/>}
+
 							</div>
 							<div className="tab-pane" id="forked" role="tabpanel">List forked gists here</div>
 							<div className="tab-pane" id="starred" role="tabpanel">Stared</div>

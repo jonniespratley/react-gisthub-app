@@ -16,6 +16,7 @@ import utils from './utils'
 const log = utils.getLogger('app');
 
 import Header from './components/_header'
+import PublicGistsPage from './pages/public-gists'
 import Footer from './components/_footer'
 import Index from './pages/index'
 import Dashboard from './pages/dashboard'
@@ -41,6 +42,7 @@ export default class App extends React.Component {
                <Route path="/" component={Index}/>
                <Route exact path="/about" component={About}/>
                <Route exact path="/dashboard" component={Dashboard}/>
+               <Route exact path="/discover" component={PublicGistsPage}/>
                <Route exact path="/home" render={() => <div>Home</div>}/>
                <Route exact path="/create-gist" component={GistsFormPage}/>
            </Switch>

@@ -1,9 +1,11 @@
+import PouchDB from 'pouchdb';
 import Logger from './logger'
 const log = new Logger('gisthub').getLogger('Store');
 
 export default class Store {
-  constructor(type){
+  constructor(type, options){
     this.ns = 'gisthub';
+    this.db = new PouchDB(this.ns, options);
     this._data = {};
     if(type === 'session'){
 	    this.store = window.sessionStorage;
@@ -12,10 +14,27 @@ export default class Store {
     }
     log('constructor', this);
   }
+
   clear(){
     log('clear', this);
     this.store.clear();
   }
+
+  put(){
+    log('put', arguments);
+    return this.db.put(arguments);
+  }
+  get(){
+    log('get', arguments);
+    return this.db.get(arguments);
+  }
+
+  fetch(){
+    log('fetch', arguments);
+    return this.db.allDocs(arguments);
+  }
+
+
   set(key, value){
     return new Promise((resolve, reject) =>{
       log('set', key, value);

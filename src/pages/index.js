@@ -3,7 +3,7 @@ import {
   Switch,
   BrowserRouter,
   Route,
-  Link
+  //Link
 } from 'react-router-dom'
 
 //import GistForm from '../components/_gist-form'
@@ -16,7 +16,7 @@ const log = Utils.getLogger('index-page')
 import GistsListPage from './list'
 import PublicGists from '../components/_public-gists'
 import GistDetailPage from './detail'
-import {Jumbotron, Button} from 'react-bootstrap'
+//import {Jumbotron, Button} from 'react-bootstrap'
 
 //Child Page
 const Child = (props) => {
