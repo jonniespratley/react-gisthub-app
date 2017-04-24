@@ -6,21 +6,8 @@ import {
   hashHistory
 } from 'react-router-dom'
 
-
-//Images
-//import logo from './logo.svg';
-
-//Styles
 import './App.css';
 import './styles/main.css';
-import './styles/github.min.css';
-import './styles/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.css';
-
-
-
-
-
 
 import Services from './services'
 import utils from './utils'
