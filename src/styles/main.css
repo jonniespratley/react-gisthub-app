@@ -1,18 +1,23 @@
 body {
   font-family: sans-serif;
+	padding-top: 55px;
 }
-
-a {
-  color: #0ebeff;
+.gist__tabs {
+	border-bottom: none;
+}
+.gists__header h2 {
+    font-size: 1.4rem;
+}
+.gists__header {
+	background: #eee;
+	border-bottom: 1px solid #ddd;
 }
 
 a:not(:hover) {
   text-decoration: none;
 }
 
-body {
-  padding-top: 65px;
-}
+
 
 .bg--white {
   background: #fff;

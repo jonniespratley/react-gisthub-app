@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Switch,
   BrowserRouter,
   Route,
   Link
@@ -13,6 +14,7 @@ import Utils from '../utils'
 const log = Utils.getLogger('index-page')
 
 import GistsListPage from './list'
+import PublicGists from '../components/_public-gists'
 import GistDetailPage from './detail'
 import {Jumbotron, Button} from 'react-bootstrap'
 
@@ -70,19 +72,10 @@ export default class Index extends React.Component {
     return (
       <BrowserRouter>
 				<div>
-          <Jumbotron>
-            <h2>Sign In to See Your Gists</h2>
-						<p>Here we list public gists until the user is logged in.</p>
-
-            <p>
-              <Button bsStyle="default"><Link to="/jonniespratley">jonniespratley</Link></Button>
-              <Button bsStyle="primary">Learn more</Button>
-
-            </p>
-          </Jumbotron>
-					<div id='index-content'>
+					<Switch>
+						<Route exact path="/discover" component={PublicGists}/>
 						<Route path="/:username/:id?" component={Child}/>
-					</div>
+					</Switch>
 				</div>
 			</BrowserRouter>
     )
