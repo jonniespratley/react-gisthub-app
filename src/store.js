@@ -1,11 +1,11 @@
-import PouchDB from 'pouchdb';
+/*global PouchDB*/
 import Logger from './logger'
 const log = new Logger('gisthub').getLogger('Store');
 
 export default class Store {
   constructor(type, options){
     this.ns = 'gisthub';
-    this.db = new PouchDB(this.ns, options);
+    this.db = new window.PouchDB(this.ns, options);
     this._data = {};
     if(type === 'session'){
 	    this.store = window.sessionStorage;
