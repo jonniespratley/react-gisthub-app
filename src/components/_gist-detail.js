@@ -32,7 +32,7 @@ export default class GistDetail extends Component {
           <li className="nav-item">
             <a className="nav-link active" href="#code">
               <i className='fa fa-code mr-1'/>
-              Code</a>
+            Code</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#history">
@@ -49,8 +49,6 @@ export default class GistDetail extends Component {
         <div id='gistRevision'>
 
         </div>
-
-
 		</div>
     )
   }

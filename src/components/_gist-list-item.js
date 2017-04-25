@@ -15,18 +15,18 @@ export default class GistListItem extends React.Component {
       file = gist.files[Object.keys(gist.files)[0]];
     }
     return (
-      <div className='GistListItem'>
-        <div className='gist gist--compact mb-3'>
-          <div className="d-flex justify-content-between">
+      <div className='GistListItem my-lg-5 my-3'>
+        <div className='gist gist--compact'>
+          <section className="d-flex justify-content-between">
             <GistUser gist={gist}/>
             <GistStats gist={gist}/>
-          </div>
-          <div>
-            <div className="gist__files">
+          </section>
+          <section>
+            <div className="d-flex flex-column">
               <GistFile key={file.filename} file={file}/>
             </div>
-          </div>
-  		</div>
+          </section>
+        </div>
       </div>
     )
   }

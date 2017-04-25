@@ -31,7 +31,7 @@ export default class Gists extends React.Component {
 
 		log('render', this);
     return (
-      <div>
+      <div className='Gists'>
 				{this.state && this.state.gists && this.state.gists.map(gist => (
 					<GistListItem key={gist.id} gist={gist} compact/>
 				))}

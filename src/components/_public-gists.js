@@ -24,7 +24,7 @@ export default class PublicGists extends React.Component {
 				<section className="gists__container">
 					<header className="gists__header">
 						<div className="container">
-							<div className="d-flex justify-content-between  pt-4 pb-3">
+							<div className="d-flex justify-content-between pt-4 pb-3">
 								<div>
 									<h2 className="m-0"><i className="fa fa-file-code-o"></i> Discover Gists</h2>
 								</div>
@@ -45,14 +45,14 @@ export default class PublicGists extends React.Component {
 							<ul className="nav nav-tabs gist__tabs" role="tablist">
 								<li className="nav-item">
 									<a className="nav-link active" data-toggle="tab" href="#allgists" role="tab">
-										<i className="fa fa-file-code-o"></i> All Gists
+										<i className="fa fa-file-code-o mr-1"></i> All Gists
 									</a>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link" data-toggle="tab" href="#forked" role="tab"><i className="fa fa-code-fork"></i> Forked</a>
+									<a className="nav-link" data-toggle="tab" href="#forked" role="tab"><i className="fa fa-code-fork mr-1"></i> Forked</a>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link" data-toggle="tab" href="#starred" role="tab"><i className="fa fa-star"></i> Starred</a>
+									<a className="nav-link" data-toggle="tab" href="#starred" role="tab"><i className="fa fa-star mr-1"></i> Starred</a>
 								</li>
 							</ul>
 						</div>

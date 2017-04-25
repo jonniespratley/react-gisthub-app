@@ -44,16 +44,12 @@ export default class GistsListPage extends React.Component {
 		}
     return (
       <div>
-
-
-
         <div className='gists__header'>
-          <div className="d-flex justify-content-between py-3 container">
+          <div className="d-flex justify-content-between py-4 container">
   					<div>
-  						<h2 className="h2"><i className="fa fa-book"></i> Your Gists</h2>
+  						<h2 className="h2 m-0"><i className="fa fa-book"></i> Your Gists</h2>
   					</div>
   				</div>
-
 
           <div className='gists__tab-container container'>
             <ul className="nav nav-tabs" role="tablist">
@@ -78,7 +74,7 @@ export default class GistsListPage extends React.Component {
         </div>
         <div className='container'>
           <div className="tab-content">
-            <div className="tab-pane active p-3" id="allgists" role="tabpanel">
+            <div className="tab-pane active" id="allgists" role="tabpanel">
               {gists && <Gists gists={gists}/>}
             </div>
             <div className="tab-pane" id="forked" role="tabpanel">
