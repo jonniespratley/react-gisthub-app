@@ -75,6 +75,7 @@ export default class Index extends React.Component {
     return (
       <BrowserRouter id='router'>
 				<div>
+          <h2>{this.state.name}</h2>
 					<Switch>
 						<Route exact path="/discover" component={PublicGists}/>
 						<Route path="/:username/:id?" component={Child}/>

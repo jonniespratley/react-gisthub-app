@@ -13,7 +13,7 @@ export default class About extends React.Component {
 		console.log('About.render', this);
     return (
       <div>
-		<h2>{this.state.name}</h2>
+        <h2>{this.state.name}</h2>
 	  </div>
     )
   }

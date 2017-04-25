@@ -2,7 +2,7 @@ import React from 'react'
 
 import GistDetail from '../components/_gist-detail'
 import Service from '../services'
-
+import Loading from '../components/loader'
 import Utils from '../utils'
 const log = Utils.getLogger('pages:detail-page')
 
@@ -38,8 +38,12 @@ export default class Detail extends React.Component {
       return (<div>Must provide an #ID</div>)
     }
 		if(!this.state.gist){
-		   return (<div>Loading</div>)
+		   return (<Loading/>)
 		}
-		return (<GistDetail gist={this.state.gist}/>)
+		return (
+      <div className='container mt-4'>
+        <GistDetail gist={this.state.gist}/>
+      </div>
+      )
   }
 }
