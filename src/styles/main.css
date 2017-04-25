@@ -2,6 +2,24 @@ body {
   padding-top: 55px;
   background: #fff; }
 
+.gist-card.gist,
+.card.gist {
+  font-size: .8rem; }
+
+.gist-card.gist .card-header,
+.card.gist .card-header {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+  font-size: .8rem; }
+
+.gist-card.gist .card-header a, .gist-card.gist .card-header a:hover,
+.card.gist .card-header a,
+.card.gist .card-header a:hover {
+  text-decoration: none; }
+
+.gist-card.gist .card-block .hljs,
+.card.gist .card-block .hljs {
+  background: transparent; }
+
 .gist__tabs, .nav-tabs {
   border-bottom: none; }
 
@@ -131,10 +149,6 @@ pre[class*=language-] {
 
 .gist__filename a:hover {
   text-decoration: none; }
-
-.gist__code {
-  background: #fff;
-  font-size: .9rem; }
 
 .gist__stats {
   display: none; }

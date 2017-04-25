@@ -24,7 +24,7 @@ export default class GistUser extends Component {
 				<div className="gist__user d-flex ">
   				<img src={gist.owner.avatar_url} alt="Gist Owner" className="gist__avatar rounded mr-2" />
   				<div className="gist__meta">
-  					<div className='gist__owner'>
+  					<div className='gist__owner  d-flex'>
   						<Link to={`/${gist.owner.login}`}>{gist.owner.login}</Link> /
   						<Link to={`/${gist.owner.login}/${gist.id}`}>{file.filename}</Link>
   					</div>

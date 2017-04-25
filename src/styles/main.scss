@@ -19,6 +19,26 @@ body{
 }
 
 
+.gist-card,
+.card{
+	&.gist{
+		font-size: .8rem;
+		.card-header{
+			font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+			font-size: .8rem;
+			a, a:hover{
+				text-decoration: none;
+			}
+		}
+		.card-block{
+			.hljs{
+				background: transparent;
+			}
+		}
+	}
+}
+
+
 
 .gists__container {}
 
@@ -183,8 +203,8 @@ pre[class*=language-] {
 	}
 	//Code
 	&__code {
-		background: #fff;
-		font-size: .9rem;
+		//background: #fff;
+		//font-size: .9rem;
 	}
 	&__stats {
 		display: none;

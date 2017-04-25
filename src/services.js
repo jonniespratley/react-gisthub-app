@@ -44,14 +44,19 @@ const Services = {
       if(!options){
         options = {
           params: {
-            page: 1,
-            per_page: 8
+            //page: 1,
+            //per_page: 8
           }
         };
       }
         log('getGists', username, options);
         let url = (username ? `https://api.github.com/users/${username}/gists` : 'https://api.github.com/gists');
-        return request(url, options).then(resp => resp.data);
+        return request(url, options)
+          .then(resp => {
+            console.log(resp.headers);
+            return resp;
+          })
+          .then(resp => resp.data);
     },
     getGist: (id) => {
         log('getGist', id);
