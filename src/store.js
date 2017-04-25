@@ -35,7 +35,7 @@ export default class Store {
   }
 
 
-  set(key, value){
+  setItem(key, value){
     return new Promise((resolve, reject) =>{
       log('set', key, value);
       key = `${this.ns}:${key}`
@@ -49,14 +49,14 @@ export default class Store {
       }
     });
   }
-  get(key){
+  getItem(key){
     return new Promise((resolve, reject) =>{
       key = `${this.ns}:${key}`
       try {
         log('get', key);
-        if(this.store.getItem(key)){
+        if(this.store.getItem(key) !== null){
           resolve(JSON.parse(this.store.getItem(key)));
-        }else {
+        } else {
           reject({error_message: `Key ${key} not found in storage`})
         }
 

@@ -8,7 +8,7 @@ import {
 
 //import GistForm from '../components/_gist-form'
 //import GistsFormPage from './create'
-import Services from '../services'
+//import Services from '../services'
 import Utils from '../utils'
 
 const log = Utils.getLogger('index-page')
@@ -49,6 +49,18 @@ const Child = (props) => {
   )
 }
 
+
+/**
+ * Index Page
+ * Need to define routes
+ *
+ * /discover - public gists
+ * /:username/gists - private gists
+ * /gists/:gist-id - gist detail
+ * /gists/:gist-id/history - gist history
+ * /gists/:gist-id/stars - gist history
+ * /gists/:gist-id/forks - gist history
+ */
 export default class Index extends React.Component {
   constructor(props) {
     super(props)
@@ -56,21 +68,12 @@ export default class Index extends React.Component {
       name: 'Index'
     }
     log('Index', 'constructor', this);
-    let code = Utils.getQueryVariable('code');
-    let state = Utils.getQueryVariable('state');
-    if (code) {
-      log('Get token with code', code, state);
-      Services.getAccessToken(code, state).then((resp) => {
-        this.setState({
-          user: resp
-        })
-      })
-    }
+
   }
   render() {
     log('render', this);
     return (
-      <BrowserRouter>
+      <BrowserRouter id='router'>
 				<div>
 					<Switch>
 						<Route exact path="/discover" component={PublicGists}/>

@@ -5,7 +5,7 @@ import Service from '../services'
 
 
 import Utils from '../utils'
-const log = Utils.getLogger('list-page')
+const log = Utils.getLogger('pages:list-page')
 
 
 const Icon = (props) => (
@@ -25,11 +25,12 @@ export default class GistsListPage extends React.Component {
   }
 
 	componentWillMount() {
+    const {username} = this.props.match.params;
     log('componentWillMount', this);
-    Service.getGists(this.props.username).then(data => this.setState({
+    Service.getGists(username).then(data => this.setState({
       gists: data
     })).catch(err =>{
-			console.log('Error', err)
+			log('Error', err)
 		})
   }
 

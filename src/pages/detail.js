@@ -3,8 +3,8 @@ import React from 'react'
 import GistDetail from '../components/_gist-detail'
 import Service from '../services'
 
-import Logger from '../logger'
-const log = new Logger('gisthub').getLogger('detail-page')
+import Utils from '../utils'
+const log = Utils.getLogger('pages:detail-page')
 
 export default class Detail extends React.Component {
   constructor(props) {

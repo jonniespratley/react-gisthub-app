@@ -18,34 +18,82 @@ const log = utils.getLogger('app');
 import Header from './components/_header'
 import PublicGistsPage from './pages/public-gists'
 import Footer from './components/_footer'
-import Index from './pages/index'
-import Dashboard from './pages/dashboard'
-import About from './pages/about'
-//import GistsListPage from './pages/list'
-import GistsFormPage from './pages/create'
+//import IndexPage from './pages/index'
+import DashboardPage from './pages/dashboard'
+import AboutPage from './pages/about'
+//import GistsFormPage from './pages/create'
+import CallbackPage from './pages/callback'
+import GistsListPage from './pages/list'
+import GistDetailPage from './pages/detail'
 
 
+
+// then our route config
+const routes = [
+  { path: '/oauth/callback',
+    component: CallbackPage
+  },
+  { path: '/discover',
+    exact: true,
+    component: PublicGistsPage
+  },
+  { path: '/about',
+    exact: true,
+    component: AboutPage
+  },
+  { path: '/dashboard',
+    exact: true,
+    component: DashboardPage
+  },
+  { path: '/:username',
+    component: GistsListPage
+  },
+  { path: '/gists',
+    component: GistsListPage,
+    routes: [
+      { path: '/gists/:id',
+        component: GistDetailPage
+      }
+    ]
+  }
+];
+
+const RouteWithSubRoutes = (route) => (
+  <Route exact={route.exact} path={route.path} render={props => (
+    // pass the sub-routes down to keep nesting
+    <route.component {...props} routes={route.routes}/>
+  )}/>
+)
 
 export default class App extends React.Component {
   constructor(props){
     super(props);
     this.services = Services;
     log('constructor', this);
+    //this._githubAuthCallback();
   }
+
+  componentWillMount(){
+    log('componentWillMount', this);
+  }
+
+  componentDidMount(){
+    log('componentDidMount', this);
+  }
+
+  componentWillUnmount(){
+    log('componentWillUnmount', this);
+  }
+
   render() {
     log('render', this);
     return (
       <BrowserRouter history={hashHistory}>
          <div>
            <Header loginUrl={this.services.getGithubLoginUrl()}/>
-            <Switch>
-               <Route path="/" component={Index}/>
-               <Route exact path="/about" component={About}/>
-               <Route exact path="/dashboard" component={Dashboard}/>
-               <Route exact path="/discover" component={PublicGistsPage}/>
-               <Route exact path="/home" render={() => <div>Home</div>}/>
-               <Route exact path="/create-gist" component={GistsFormPage}/>
-           </Switch>
+             {routes.map((route, i) => (
+               <RouteWithSubRoutes key={i} {...route}/>
+             ))}
            <Footer/>
          </div>
        </BrowserRouter>
