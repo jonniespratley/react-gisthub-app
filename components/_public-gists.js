@@ -12,7 +12,7 @@ export default class PublicGists extends React.Component {
 	}
 	componentWillMount() {
 		log('componentWillMount', this);
-		Services.getGists().then((resp) => {
+		Services.getGists(null, {page: 1, per_page: 5}).then((resp) => {
 
 			this.setState({gists: resp});
 		});
@@ -61,7 +61,6 @@ export default class PublicGists extends React.Component {
 						<div className="tab-content">
 							<div className="tab-pane active" id="allgists" role="tabpanel">
 								{this.state.gists && <GistsList gists={this.state.gists}/>}
-
 							</div>
 							<div className="tab-pane" id="forked" role="tabpanel">List forked gists here</div>
 							<div className="tab-pane" id="starred" role="tabpanel">Stared</div>

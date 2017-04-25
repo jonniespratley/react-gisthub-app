@@ -4,11 +4,9 @@ const GITHUB_CLIENT_ID = GITHUB_CLIENT_ID_DEV || '6b070b302956750a3c37';
 const GITHUB_CLIENT_SECRET = GITHUB_CLIENT_SECRET_DEV || 'f931b4d0ebde3d1f4d8f30b98be620f831e8c2ac';
 
 import axios from 'axios'
-import Store from './store'
 import Utils from './utils'
-//import GistService from './services/gist-service'
 
-let cache = new Store('localStorage');
+
 const log = Utils.getLogger('services');
 
 async function getJson(url, options) {
@@ -39,10 +37,10 @@ const Services = {
     getGithubLoginUrl: () => {
         return `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri&scope&state=login`
     },
-    getGists: (username) => {
+    getGists: (username, params) => {
         log('getGists', username);
         let url = (username ? `https://api.github.com/users/${username}/gists` : 'https://api.github.com/gists');
-        return request(url).then(resp => resp.data);
+        return request(url, {params: params}).then(resp => resp.data);
     },
     getGist: (id) => {
         log('getGist', id);

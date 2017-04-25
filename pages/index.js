@@ -52,12 +52,15 @@ const Child = (props) => {
 export default class Index extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
-      name: 'Index'
+      name: 'Index',
+      code: null,
+      state: null
     }
     log('Index', 'constructor', this);
-    let code = Utils.getQueryVariable('code');
-    let state = Utils.getQueryVariable('state');
+    let code =/* Utils.getQueryVariable('code')*/;
+    let state = /*Utils.getQueryVariable('state')*/;
     if (code) {
       log('Get token with code', code, state);
       Services.getAccessToken(code, state).then((resp) => {

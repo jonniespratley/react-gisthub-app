@@ -5,7 +5,7 @@ const log = new Logger('gisthub').getLogger('Store');
 export default class Store {
   constructor(type, options){
     this.ns = 'gisthub';
-    this.db = new window.PouchDB(this.ns, options);
+    //this.db = new PouchDB(this.ns, options);
     this._data = {};
     if(type === 'session'){
 	    this.store = window.sessionStorage;
@@ -49,7 +49,7 @@ export default class Store {
       }
     });
   }
-  get(key){
+  getKey(key){
     return new Promise((resolve, reject) =>{
       key = `${this.ns}:${key}`
       try {
